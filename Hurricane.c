@@ -4,7 +4,7 @@ int main() {
     
     int windSpeed;
     printf("How fast is the wind speed in mph?\n");
-    scanf("%d, %s", &windSpeed); 
+    scanf("%d", &windSpeed); 
 
     if (windSpeed < 74) {
         printf("Not a Hurricane ");
