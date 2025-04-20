@@ -68,7 +68,7 @@ int main() {
     }
 
     printf("Top Salesperson: %s with $%d in sales!\n", salespeople[highestIndex].name, salespeople[highestIndex].sales);
-    file = fopen("sales_data.txt", "w");
+    
     for (int i = 0; i < 3; i++) {
         fprintf(file, "%s %c %d\n", salespeople[i].name, salespeople[i].initials, salespeople[i].sales);
     }
