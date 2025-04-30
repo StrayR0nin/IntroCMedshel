@@ -8,12 +8,12 @@ int main() {
     char current; 
 
     printf("Enter a message: ");
-
     fgets(message, sizeof(message), stdin);
 
-    printf("Enter the shift number: ");
-    
-    scanf("%i", &shift);
+    printf("Enter the shift number: ");    
+    scanf("%d", &shift);
+
+    shift = shift %26; 
 
     for ( int i = 0; message[i] != '\0'; i ++) { 
         
@@ -25,9 +25,11 @@ int main() {
 
         }
 
-        if (isupper(current)) {
+        else if (isupper(current)) {
         
             current = (current - 'A' + shift) % 26 + 'A'; 
+        } else {
+            current = message[i];
         }
 
         message[i] = current; 
