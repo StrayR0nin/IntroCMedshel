@@ -11,13 +11,19 @@ struct Salesperson {
 
 int main() {
 
+    FILE *file = fopen("sales_data.txt", "w");
+    if (file != NULL) {
+        fclose(file);
+    }
+    
+
     struct Salesperson salespeople[3] = {
         {"Danielle", 'D', 0},
         {"Edward", 'E', 0},
         {"Francis", 'F', 0}
     };
 
-    FILE *file = fopen("sales_data.txt", "r");
+    file = fopen("sales_data.txt", "r");
     if(file != NULL) {
         for (int i = 0; i < 3; i++) {
             fscanf(file, "%s %c %d", salespeople[i].name, &salespeople[i].initials,&salespeople[i].sales);
