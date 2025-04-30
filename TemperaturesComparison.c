@@ -4,15 +4,14 @@
 int main() {
 
     int temp[5];
-    int i;
     int sum = 0; 
-    bool warmer = false;
-    bool cooler = false;
+    bool increasing = true;
+    bool decreasing = true;
     int size = 5;
     
     printf("Enter 5 valid temperatures between -30 and 130:\n");
    
-    for(int i = 0; i < 5; i++) {
+    for(int i = 0; i < size; i++) {
 
         scanf("%d", &temp[i]);
         if(temp[i] < -30 || temp[i] > 130) {
@@ -24,24 +23,25 @@ int main() {
         
         sum += temp[i];
 
-        if(temp[i] <= temp[i - 1]) { 
+        for( int i = 1; i < size; i++) {
+            
+            if(temp[i] <= temp[i - 1]) {
+                increasing = false; 
+            }
 
-            cooler = true; 
-
-        } else if (temp[i] >= temp[i - 1]) {
-          
-            warmer = true; 
-
+            if(temp[i] >= temp[i - 1]) {
+                decreasing = false; 
+            }
         }
         
 
     }
 
-    if(cooler == true) {
+    if(increasing) {
 
         printf("Getting cooler\n");
 
-    } else if (warmer == true) {
+    } else if (decreasing) {
         
         printf("Getting warmer\n");
 
@@ -54,13 +54,12 @@ int main() {
 
     printf("5-day Temperature: ");
 
-    for(int i = 0; i < 5; i++) {
+    for(int i = 0; i < size; i++) {
 
         printf("%d ", temp[i]);
     }
     
     float avg = (float)sum / size; 
-    printf("\n");
-    printf("The average temperature is %f degrees", avg);
+    printf("\nThe average temperature is %.2f degrees\n", avg);
 
 }
