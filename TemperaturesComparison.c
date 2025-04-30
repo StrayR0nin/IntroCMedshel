@@ -40,13 +40,9 @@ int main() {
     if(increasing) {
 
         printf("Getting cooler\n");
-
     } else if (decreasing) {
-        
         printf("Getting warmer\n");
-
     } else {
-
         printf("It's a mixed bag\n");
 
     }
